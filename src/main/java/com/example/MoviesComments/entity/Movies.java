@@ -29,7 +29,17 @@ public class Movies {
     @Column(name = "average_rating")
     private float average_rating;
 
+    /*
+    @ManyToOne
+    @JoinColumn(name="country_id")
+    private Countries country_id;
+    */
 
+    @Column(name="country_id")
+    private long country_id;
+
+    @Column(name = "num_of_votes")
+    private long num_of_votes;
 
 
 }
