@@ -4,11 +4,12 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Getter
 @Setter
 @Entity
-@Table(name="people")
+@Table(name="PEOPLE")
 public class People {
 
     @Id
@@ -17,7 +18,7 @@ public class People {
     private long id;
 
     @Column(name = "full_name")
-    private String full_name;
+    private String fullName;
 
     @Column(name = "gender")
     private boolean gender;
@@ -25,6 +26,10 @@ public class People {
     @Column(name = "birthday")
     private String birthday; //tarih date format olacak
 
-    @Column(name = "country_id")
-    private long country_id;
+    @ManyToOne
+    @JoinColumn(name="country_id")
+    private Countries countryId;
+
+    @OneToMany(mappedBy = "peopleId")
+    private Set<MoviePeople> moviePeopleSet;
 }
