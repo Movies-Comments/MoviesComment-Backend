@@ -4,12 +4,13 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Getter
 @Setter
 @Entity
-@Table(name="COUNTRIES")
+@Table(name="countries")
 public class Countries {
 
     @Id
@@ -21,13 +22,11 @@ public class Countries {
     private String name;
 
     @Column(name = "continent_name")
-    private String continentName;
+    private String continent_name;
 
-    @OneToMany(mappedBy = "countryId")
-    private Set<Movies> moviesSet;
-
-    @OneToMany(mappedBy = "countryId")
-    private Set<People> peopleSet;
-
+    /*
+    @OneToMany(mappedBy = "countries")
+    private Set<Movies> movies;
+    */
 
 }

@@ -23,6 +23,9 @@ public class Users {
     @Column(name = "full_name")
     private String fullName;
 
+    @Column(name = "email")
+    private String email;
+
     @OneToMany(mappedBy = "user")
     private Set<UserReviews> userReviewsSet;
 
